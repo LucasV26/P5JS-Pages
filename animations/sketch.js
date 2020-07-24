@@ -15,10 +15,10 @@ class Bolinha{
     this.W = tamW;
     this.H = tamH;
     this.dir = dir;
-    this.incX = Aleatorio(2)==0?-1:1;
+    this.incX = Aleatorio(2)==0?-2:2;
     this.incY = 1;
-    this.p2X = 1;
-    this.p2Y = 1;
+    this.p2X = Aleatorio(300, 100);
+    this.p2Y = Aleatorio(200, 50);
     this.R = Aleatorio(255);
     this.G = Aleatorio(255);
     this.B = Aleatorio(255);
