@@ -48,13 +48,20 @@ function draw() {
     mouseP2: dist(mouseX, mouseY, TD.p2x, TD.p2y),
     mouseP3: dist(mouseX, mouseY, TD.p3x, TD.p3y),
   }
-  triangle(TE.p1x, TE.p1y, TE.p2x, TE.p2y, TE.p3x, TE.p3y);
-  triangle(TD.p1x, TD.p1y, TD.p2x, TD.p2y, TD.p3x, TD.p3y);
-  let area1 = Heron(mouseTE.mouseP2, mouseTE.mouseP3, TE.b);
-  let area2 = Heron(mouseTE.mouseP1, mouseTE.mouseP3, TE.c);
-  let area3 = Heron(mouseTE.mouseP1, mouseTE.mouseP2, TE.a);
-  fill(255, 0, 0);
-  if(area1 <= TE.Area() && area2 <= TE.Area() && area3 <= TE.Area()){
+  let area1TE = Heron(mouseTE.mouseP2, mouseTE.mouseP3, TE.b);
+  let area2TE = Heron(mouseTE.mouseP1, mouseTE.mouseP3, TE.c);
+  let area3TE = Heron(mouseTE.mouseP1, mouseTE.mouseP2, TE.a);
+  fill(255);
+  if(Math.round(area1TE+area2TE+area3TE) == Math.round(TE.Area())){
     fill(0)
   }
+  triangle(TE.p1x, TE.p1y, TE.p2x, TE.p2y, TE.p3x, TE.p3y);
+  let area1TD = Heron(mouseTD.mouseP2, mouseTD.mouseP3, TD.b);
+  let area2TD = Heron(mouseTD.mouseP1, mouseTD.mouseP3, TD.c);
+  let area3TD = Heron(mouseTD.mouseP1, mouseTD.mouseP2, TD.a);
+  fill(255);
+  if(Math.round(area1TD+area2TD+area3TD) == Math.round(TD.Area())){
+    fill(0)
+  }
+  triangle(TD.p1x, TD.p1y, TD.p2x, TD.p2y, TD.p3x, TD.p3y);
 }; 
