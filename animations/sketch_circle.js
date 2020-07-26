@@ -69,7 +69,7 @@ function moverCirculoFake(cenX, cenY, R, Y, move){
 
 function setup() { 
   createCanvas(700, 700);
-  background(255, 0, 0);
+  background(0, 0, 255);
 }; 
 //A função setup() é executada apenas 1 vez durante todo o fluxo
 //The setup() function runs only once during the whole program flow
