@@ -117,7 +117,7 @@ function setup() {
 //The setup() function runs only once during the whole program flow
 
 function draw() {
-  background(255, 50, 150);
+  //background(255, 50, 150);
   stroke(0, 0, 255);
   //Mouse:
   rectMode(CENTER);
@@ -149,10 +149,11 @@ function mousePressed(){
   let TD = new Triangulo(0.95*width, 0.9*height, 0.85*width, 0.85*height, 0.85*width, 0.95*height);
   let mouseTD = new mouseTriangles(dist(mouseX, mouseY, TD.p1x, TD.p1y), dist(mouseX, mouseY, TD.p2x, TD.p2y), dist(mouseX, mouseY, TD.p3x, TD.p3y));
 
-  todasBolinhas.push(new Bolinha(mouseX, mouseY, Aleatorio(255), Aleatorio(255), Aleatorio(2)==0?'u':'d'));
   if(mouseTD.Areas(TD.a, TD.b, TD.c) == TD.Area()){
     location.replace('https://lucasv26.github.io/Estudando-p5js/animations/index_graphics.html');
   }
+
+  todasBolinhas.push(new Bolinha(mouseX, mouseY, Aleatorio(255), Aleatorio(255), Aleatorio(2)==0?'u':'d'))
 }; 
 //A função mousePressed() só é chamada quando o botão do mouse é pressionado (Ela pode nunca ocorrer)
 //Funções deste gênero são chamadas de Eventos.
