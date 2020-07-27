@@ -35,23 +35,65 @@ class mouseTriangles{
   }
 }
 
-const cenX = 350;
-const cenY = 350;
-const R = 300;
-var X = cenX;
-var Y;
-var move = 1;
+class Circunferencia{
+  constructor(cenX, cenY, R, move){
+    this.cenX = cenX;
+    this.cenY = cenY;
+    this.R = R;
+    this.X = this.cenX+this.R;
+    this.Y;
+    this.X2;
+    this.Y2 = this.cenY+this.R;
+    this.move = move;
+    this.move2 = move;
+  }
 
-function moverCirculo(cenX, cenY, R, X, move){
-  let par = {a: 1, b: -2*cenY, c: cenY**2 + cenX**2 - 2*cenX*X + X**2 - R**2};
-  let delta = (par.b**2) - (4 * par.a * par.c);
-  let result = {Y1: (-1*(par.b + sqrt(delta)))/2*par.a, Y2: (-1*(par.b - sqrt(delta)))/2*par.a};
-  if(move < 0){
-    return result.Y2;
-  }else{
-    return result.Y1;
+  moverCirculoYX(){
+    let par = {a: 1, b: -2*this.cenY, c: this.cenY**2 + this.cenX**2 - 2*this.cenX*this.X + this.X**2 - this.R**2};
+    let delta = (par.b**2) - (4 * par.a * par.c);
+    let result = {Y1: (-1*(par.b + sqrt(delta)))/2*par.a, Y2: (-1*(par.b - sqrt(delta)))/2*par.a};
+    if(this.move < 0){
+      this.Y = result.Y2;
+    }else{
+      this.Y = result.Y1;
+    }
+  }
+
+  moverCirculoXY(){
+    let par = {a: 1, b: -2*this.cenX, c: this.cenY**2 + this.cenX**2 - 2*this.cenY*this.Y2 + this.Y2**2 - this.R**2};
+    let delta = (par.b**2) - (4 * par.a * par.c);
+    let result = {X1: (-1*(par.b + sqrt(delta)))/2*par.a, X2: (-1*(par.b - sqrt(delta)))/2*par.a};
+    if(this.move2 < 0){
+      this.X2 = result.X2;
+    }else{
+      this.X2 = result.X1;
+    }
+  }
+
+  desenharCirculo(r=0, g=0, b=0){
+    ellipse(this.cenX, this.cenY, 25, 25);
+    //Gerar Y em função de X (Y = f(x)):
+    this.moverCirculoYX();
+    //Gerar X em função de Y (X = f(y)):
+    this.moverCirculoXY();
+    stroke(r, g, b);
+    //Respectivamente: círculo de Y em função de X e círculo de X em função de Y:
+    line(this.cenX, this.cenY, this.X, this.Y);
+    line(this.cenX, this.cenY, this.X2, this.Y2);
+    this.X += this.move;
+    this.Y2 += this.move2;
+    if(this.X > this.R+this.cenX || this.X < this.cenX-this.R){
+      this.move *= -1;
+    }
+    if(this.Y2 > this.R+this.cenY || this.Y2 < this.cenY-this.R){
+      this.move2 *= -1;
+    }
   }
 }
+
+let circunferencias = [
+  new Circunferencia(350, 350, 150, 1)
+];
 
 
 function setup() { 
@@ -62,23 +104,9 @@ function setup() {
 //The setup() function runs only once during the whole program flow
 
 function draw() {
-  fill(0);
-  ellipse(cenX, cenY, 50, 50);
-  Y = moverCirculo(cenX, cenY, R, X, move);
-  stroke(0);
-  fill(255);
-  //Apague os seguintes comentários para ter um desenho maneiro:
-  //ellipse(100, 100, Y, X);
-  //ellipse(width-100, height-100, Y, X);
-  line(cenX, cenY, X, Y);
   stroke(255);
-  fill(0);
-  //ellipse(100, height-100, X, Y);
-  //ellipse(width-100, 100, X, Y);
-  line(cenX, cenY, Y, X);
-  X += move;
-  if(X > R+cenX || X < cenX-R){
-    move *= -1;
+  for(let i in circunferencias){
+    circunferencias[i].desenharCirculo(i*20, i, i*20);
   }
 
   let TE = new Triangulo(0.05*width, 0.9*height, 0.15*width, 0.85*height, 0.15*width, 0.95*height);
@@ -94,6 +122,7 @@ function draw() {
 //The draw() function runs infinitely
 
 function mousePressed(){
+  circunferencias.push(new Circunferencia(mouseX, mouseY, random(100, 300), 1));
   let TE = new Triangulo(0.05*width, 0.9*height, 0.15*width, 0.85*height, 0.15*width, 0.95*height);
   let mouseTE = new mouseTriangles(dist(mouseX, mouseY, TE.p1x, TE.p1y), dist(mouseX, mouseY, TE.p2x, TE.p2y), dist(mouseX, mouseY, TE.p3x, TE.p3y));
 

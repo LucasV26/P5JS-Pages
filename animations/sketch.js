@@ -86,15 +86,15 @@ class Bolinha{
   gerandoReta(aux){
     let m = (Math.abs(this.Y - (this.Y+this.p2Y)) / Math.abs(this.X - (this.X+this.p2X)));
     let Y = ((aux*m)*Math.abs(this.X - (this.X+this.incX))) + this.Y;
-    return Y;
+    this.incY = Y;
   }
 
   movendoBolinha(){
     this.batendoBordas();
     if(this.dir == 'u'){
-      this.incY = this.gerandoReta(-1);
+      this.gerandoReta(-1);
     }else{
-      this.incY = this.gerandoReta(1);
+      this.gerandoReta(1);
     }
     
     this.X += this.incX;
@@ -117,7 +117,7 @@ function setup() {
 //The setup() function runs only once during the whole program flow
 
 function draw() {
-  //background(255, 50, 150);
+  background(255, 50, 150);
   stroke(0, 0, 255);
   //Mouse:
   rectMode(CENTER);
