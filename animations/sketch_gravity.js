@@ -47,27 +47,37 @@ let bolas = [
 
 let TE;
 let mouseTE;
+let TD;
+let mouseTD;
 
 function setup() {
   createCanvas(700, 700);
   bolas.push(new Bola(350, 0, 25, height));
+  TD = new Triangulo(0.95*width, 0.9*height, 0.85*width, 0.85*height, 0.85*width, 0.95*height);
   TE = new Triangulo(0.05*width, 0.9*height, 0.15*width, 0.85*height, 0.15*width, 0.95*height);
 }
 
 function draw() {
   background(255, 50, 150);
   stroke(255);
+  fill(0);
   strokeWeight(2);
   for(let i in bolas){
     bolas[i].desenandoBola();
   }
 
   mouseTE = new mouseTriangles(dist(mouseX, mouseY, TE.p1x, TE.p1y), dist(mouseX, mouseY, TE.p2x, TE.p2y), dist(mouseX, mouseY, TE.p3x, TE.p3y));
-  fill(0);
   if(mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()){
     fill(255, 0, 0);
   }
   triangle(TE.p1x, TE.p1y, TE.p2x, TE.p2y, TE.p3x, TE.p3y);
+
+  mouseTD = new mouseTriangles(dist(mouseX, mouseY, TD.p1x, TD.p1y), dist(mouseX, mouseY, TD.p2x, TD.p2y), dist(mouseX, mouseY, TD.p3x, TD.p3y));
+  fill(0);
+  if(mouseTD.Areas(TD.a, TD.b, TD.c) == TD.Area()){
+    fill(0,255,0);
+  }
+  triangle(TD.p1x, TD.p1y, TD.p2x, TD.p2y, TD.p3x, TD.p3y);
 }
 
 let time = 0;
@@ -78,6 +88,10 @@ function mousePressed(){
 
   if(mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()){
     location.replace('https://lucasv26.github.io/Estudando-p5js/animations/index_circle.html');
+  }
+
+  if(mouseTD.Areas(TD.a, TD.b, TD.c) == TD.Area()){
+    location.replace('https://lucasv26.github.io/Estudando-p5js/animations/index_gravidade.html');
   }
 }
 
