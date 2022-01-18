@@ -3,37 +3,37 @@ const pagesData = [
         name: "Movimento em linha reta",
         description: "Sketch sobre a fórmula de movimento retilínio. Cada bola segue sua própria função de reta",
         picture: "",
-        path: "https://lucasv26.github.io/animations/index.html"
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/index.html"
     },
     {
         name: "Reflexão com desenho permanente",
         description: "Sketch sobre a reflexão de um corpo nas extremidades na tela. O rastro da bola é fixado na tela",
         picture: "",
-        path: "https://lucasv26.github.io/animations/index_teste.html"
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/index_teste.html"
     },
     {
         name: "Atração gravitacional isolada",
         description: "Sketch sobre a atração gravitacional em sistema isolado (sem forças externas). É possível cirar novos corpos utilizando o mouse",
         picture: "",
-        path: "https://lucasv26.github.io/animations/index_gravity.html"
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/index_gravity.html"
     },
     {
         name: "Atração gravitacional acelerada",
         description: "Sketch sobre atração gravitacional com aceleração constante. É possível criar novos corpos, os antigos serão deletados",
         picture: "",
-        path: "https://lucasv26.github.io/animations/index_gravidade.html"
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/index_gravidade.html"
     },
     {
         name: "Planos distintos",
         description: "Estudo sobre ferramenta de múltiplos planos de desenho. O quadrado vermelho nunca ficará afrente dos pontos amarelos",
         picture: "",
-        path: "https://lucasv26.github.io/animations/index_graphics.html"
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/index_graphics.html"
     },
     {
         name: "Função de circunferência",
         description: "Sketch sobre a função de uma circunferência, todas as linhas são geradas a partir da função baseada no centro e raio da circunferência",
         picture: "",
-        path: "https://lucasv26.github.io/animations/index_circle.html"
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/index_circle.html"
     }
 ];
 
