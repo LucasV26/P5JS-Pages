@@ -4,15 +4,15 @@
 let extraCanvas;
 let X;
 let Y;
-let TE;
-let mouseTE;
+let BotaoMenu;
+let mouseBotaoMenu;
 
 function setup() {
-  createCanvas(700, 700);
-  extraCanvas = createGraphics(700, 700); // createGraphics() cria um 'novo canvas'
+  createCanvas(1200, 500);
+  extraCanvas = createGraphics(width, height); // createGraphics() cria um 'novo canvas'
   X = width / 2;
   Y = height / 2;
-  TE = new Triangulo(0.04 * width, 0.1 * height, 0.15 * width, 0.05 * height, 0.15 * width, 0.15 * height);
+  BotaoMenu = new Triangulo();
 };
 //A função setup() é executada apenas 1 vez durante todo o fluxo
 //The setup() function runs only once during the whole program flow
@@ -37,16 +37,15 @@ function draw() {
   }
   image(extraCanvas, 0, 0); // image() é o que exibe o 'novo canvas' na tela
 
-  mouseTE = new mouseTriangles(dist(mouseX, mouseY, TE.p1x, TE.p1y), dist(mouseX, mouseY, TE.p2x, TE.p2y), dist(mouseX, mouseY, TE.p3x, TE.p3y));
+  mouseBotaoMenu = new mouseTriangles(dist(mouseX, mouseY, BotaoMenu.p1x, BotaoMenu.p1y), dist(mouseX, mouseY, BotaoMenu.p2x, BotaoMenu.p2y), dist(mouseX, mouseY, BotaoMenu.p3x, BotaoMenu.p3y));
 
 
-  fill(0);
-  if (mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()) {
-    fill(255, 0, 0);
+  fill(255);
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
+    fill(0, 255, 0);
   }
-  triangle(TE.p1x, TE.p1y, TE.p2x, TE.p2y, TE.p3x, TE.p3y);
-  stroke(255);
-  text("MENU", 0.09 * width, 0.105 * height);
+  
+  BotaoMenu.render();
 };
 //A função draw() é executada em loop infinito
 //The draw() function runs infinitely
@@ -55,7 +54,7 @@ function mousePressed() {
   extraCanvas.background(0); // Apagando os pontos amarelos a cada clique
   extraCanvas.clear(); // O método clear() deixa este 'novo canvas' transparente
 
-  if (mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()) {
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
     location.replace('https://lucasv26.github.io/P5JS-Pages');
   }
 }

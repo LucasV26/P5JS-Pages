@@ -1,14 +1,22 @@
 class Triangulo {
-  constructor(p1x, p1y, p2x, p2y, p3x, p3y) {
-    this.p1x = p1x;
-    this.p1y = p1y;
-    this.p2x = p2x;
-    this.p2y = p2y;
-    this.p3x = p3x;
-    this.p3y = p3y;
-    this.a = dist(p1x, p1y, p2x, p2y);
-    this.b = dist(p2x, p2y, p3x, p3y);
-    this.c = dist(p3x, p3y, p1x, p1y);
+  constructor() {
+    this.p1x = 50;
+    this.p1y = 50;
+    this.p2x = 150;
+    this.p2y = 20;
+    this.p3x = 150;
+    this.p3y = 80;
+    this.a = dist(this.p1x, this.p1y, this.p2x, this.p2y);
+    this.b = dist(this.p2x, this.p2y, this.p3x, this.p3y);
+    this.c = dist(this.p3x, this.p3y, this.p1x, this.p1y);
+  }
+
+  render() {
+    stroke(0);
+    triangle(this.p1x, this.p1y, this.p2x, this.p2y, this.p3x, this.p3y);
+    fill(0);
+    textSize(12);
+    text("MENU", 100, 55);
   }
 
   Area() {
@@ -17,6 +25,7 @@ class Triangulo {
     return Math.round(area);
   }
 }
+
 class mouseTriangles {
   constructor(mouseP1, mouseP2, mouseP3) {
     this.mouseP1 = mouseP1;

@@ -111,17 +111,17 @@ let todasBolinhas = [
 ];
 //O vetor 'todasBolinhas' armazena todos os objetos 'Bolinha' criados, permitindo a criação de N objetos funcionais
 //The array 'todasBolinhas' stores all the objects 'Bolinha' created, allowing the creation of N functional objects
-let TD;
-let mouseTD;
+let BotaoMenu;
+let mouseBotaoMenu;
 function setup() {
-  createCanvas(700, 700);
-  TD = new Triangulo(0.04 * width, 0.1 * height, 0.15 * width, 0.05 * height, 0.15 * width, 0.15 * height);
+  createCanvas(1200, 500);
+  BotaoMenu = new Triangulo();
 };
 //A função setup() é executada apenas 1 vez durante todo o fluxo
 //The setup() function runs only once during the whole program flow
 
 function draw() {
-  background(255, 50, 150);
+  background(0);
   stroke(0, 0, 255);
 
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -139,21 +139,20 @@ function draw() {
     }
   }
 
-  mouseTD = new mouseTriangles(dist(mouseX, mouseY, TD.p1x, TD.p1y), dist(mouseX, mouseY, TD.p2x, TD.p2y), dist(mouseX, mouseY, TD.p3x, TD.p3y));
-  fill(0);
-  if (mouseTD.Areas(TD.a, TD.b, TD.c) == TD.Area()) {
+  mouseBotaoMenu = new mouseTriangles(dist(mouseX, mouseY, BotaoMenu.p1x, BotaoMenu.p1y), dist(mouseX, mouseY, BotaoMenu.p2x, BotaoMenu.p2y), dist(mouseX, mouseY, BotaoMenu.p3x, BotaoMenu.p3y));
+  
+  fill(255);
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
     fill(0, 255, 0);
   }
-  triangle(TD.p1x, TD.p1y, TD.p2x, TD.p2y, TD.p3x, TD.p3y);
-  stroke(255);
-  text("MENU", 0.09 * width, 0.105 * height);
+  BotaoMenu.render();
 };
 //A função draw() é executada em loop infinito
 //The draw() function runs infinitely
 
 function mousePressed() {
   let aux = 1;
-  if (mouseTD.Areas(TD.a, TD.b, TD.c) == TD.Area()) {
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
     location.replace('https://lucasv26.github.io/P5JS-Pages');
   }
   for (let i = todasBolinhas.length - 1; i >= 0; i--) {

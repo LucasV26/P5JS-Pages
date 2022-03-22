@@ -5,14 +5,14 @@ var bolinha = {
   Yspeed: 10
 };
 
-let TE;
-let mouseTE;
+let BotaoMenu;
+let mouseBotaoMenu;
 
 function setup() {
-  createCanvas(700, 700);
+  createCanvas(1200, 500);
   background(0);
 
-  TE = new Triangulo(0.04 * width, 0.1 * height, 0.15 * width, 0.05 * height, 0.15 * width, 0.15 * height);
+  BotaoMenu = new Triangulo();
 };
 
 function draw() {
@@ -27,18 +27,17 @@ function draw() {
     bolinha.Yspeed *= -1;
   }
 
-  mouseTE = new mouseTriangles(dist(mouseX, mouseY, TE.p1x, TE.p1y), dist(mouseX, mouseY, TE.p2x, TE.p2y), dist(mouseX, mouseY, TE.p3x, TE.p3y));
-  fill(0);
-  if (mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()) {
-    fill(255, 0, 0);
+  mouseBotaoMenu = new mouseTriangles(dist(mouseX, mouseY, BotaoMenu.p1x, BotaoMenu.p1y), dist(mouseX, mouseY, BotaoMenu.p2x, BotaoMenu.p2y), dist(mouseX, mouseY, BotaoMenu.p3x, BotaoMenu.p3y));
+  fill(255);
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
+    fill(0, 255, 0);
   }
-  triangle(TE.p1x, TE.p1y, TE.p2x, TE.p2y, TE.p3x, TE.p3y);
-  stroke(255);
-  text("MENU", 0.09 * width, 0.105 * height);
+  
+  BotaoMenu.render();
 };
 
 function mousePressed() {
-  if (mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()) {
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
     location.replace('https://lucasv26.github.io/P5JS-Pages');
   }
 };

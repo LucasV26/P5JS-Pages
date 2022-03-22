@@ -33,7 +33,7 @@ class Circunferencia {
     }
   }
 
-  desenharCirculo(r = 0, g = 0, b = 0) {
+  desenharCirculo(r = 255, g = 255, b = 255) {
     ellipse(this.cenX, this.cenY, 25, 25);
     //Gerar Y em função de X (Y = f(x)):
     this.moverCirculoYX();
@@ -54,38 +54,41 @@ class Circunferencia {
   }
 }
 
-let circunferencias = [
-  new Circunferencia(350, 350, 150, 1)
-];
+let circunferencias = [];
 
-let TE;
-let mouseTE;
+let BotaoMenu;
+let mouseBotaoMenu;
 
 function setup() {
-  createCanvas(700, 700);
-  background(0, 0, 255);
-  TE = new Triangulo(0.04 * width, 0.1 * height, 0.15 * width, 0.05 * height, 0.15 * width, 0.15 * height);
+  createCanvas(1200, 500);
+  background(0);
+  BotaoMenu = new Triangulo();
+
+  circunferencias.push(new Circunferencia(width/2, height/2, 150, 1));
 };
 //A função setup() é executada apenas 1 vez durante todo o fluxo
 //The setup() function runs only once during the whole program flow
 
 function draw() {
-  stroke(255);
-  fill(0);
+  stroke(0);
+  fill(255);
   for (let i in circunferencias) {
-    circunferencias[i].desenharCirculo(i * 20, i, i * 20);
+    circunferencias[i].desenharCirculo(255 - (i * 20),255 - i, 255 - (i * 20));
   }
 
-  mouseTE = new mouseTriangles(dist(mouseX, mouseY, TE.p1x, TE.p1y), dist(mouseX, mouseY, TE.p2x, TE.p2y), dist(mouseX, mouseY, TE.p3x, TE.p3y));
+  mouseBotaoMenu = new mouseTriangles(dist(mouseX, mouseY, BotaoMenu.p1x, BotaoMenu.p1y), dist(mouseX, mouseY, BotaoMenu.p2x, BotaoMenu.p2y), dist(mouseX, mouseY, BotaoMenu.p3x, BotaoMenu.p3y));
 
-  fill(0);
-  if (mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()) {
-    fill(255, 0, 0);
+  fill(255);
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
+    fill(0, 255, 0);
   }
-  triangle(TE.p1x, TE.p1y, TE.p2x, TE.p2y, TE.p3x, TE.p3y);
 
-  stroke(255);
-  text("MENU", 0.09 * width, 0.105 * height);
+  BotaoMenu.render();
+
+  stroke(0);
+  fill(255);
+  textSize(16);
+  text("Limpar Tela -> 'C'", width - 150, 20);
 };
 //A função draw() é executada em loop infinito
 //The draw() function runs infinitely
@@ -93,7 +96,14 @@ function draw() {
 function mousePressed() {
   circunferencias.push(new Circunferencia(mouseX, mouseY, random(100, 300), 1));
 
-  if (mouseTE.Areas(TE.a, TE.b, TE.c) == TE.Area()) {
+  if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
     location.replace('https://lucasv26.github.io/P5JS-Pages');
   }
 };
+
+function keyPressed() {
+  if(keyCode === 67){
+    circunferencias = [];
+    background(0);
+  }
+}
