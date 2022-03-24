@@ -29,6 +29,8 @@ header {
 #pages {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     max-width: 1200px;
     margin: 100px auto 0 auto;
     background-color: #131314;
@@ -52,7 +54,7 @@ header {
 }
 
 #pages > div {
-    flex: 1 1 310px;
+    flex: 0 1 310px;
     margin: 40px;
 }
 
