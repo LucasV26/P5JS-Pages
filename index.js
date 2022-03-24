@@ -34,6 +34,12 @@ const pagesData = [
         description: "Sketch sobre a função de uma circunferência, todas as linhas são geradas a partir da função baseada no centro e raio da circunferência",
         picture: "",
         path: "https://lucasv26.github.io/P5JS-Pages/animations/Circle/index.html"
+    },
+    {
+        name: "Gerador de Partículas",
+        description: "Sketch sobre a criação e atualização de múltiplas partículas através de um ou mais geradores",
+        picture: "",
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/ParticleGenerator/index.html"
     }
 ];
 
