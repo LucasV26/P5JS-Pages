@@ -19,7 +19,7 @@ class Particle {
   render() {
     fill(255);
     stroke(255);
-    ellipse(this.x, this.y, 2, 2);
+    ellipse(this.x, this.y, 1, 1);
   }
 };
 
