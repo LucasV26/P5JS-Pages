@@ -40,6 +40,12 @@ const pagesData = [
         description: "Sketch sobre a criação e atualização de múltiplas partículas através de um ou mais geradores",
         picture: "",
         path: "https://lucasv26.github.io/P5JS-Pages/animations/ParticleGenerator/index.html"
+    },
+    {
+        name: "Função Seno",
+        description: "Sketch sobre a ondulação formada pela função seno e os resultados obtidos ao somar duas funções distintas",
+        picture: "",
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/FuncaoSeno/index.html"
     }
 ];
 
