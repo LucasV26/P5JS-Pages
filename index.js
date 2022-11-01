@@ -46,6 +46,12 @@ const pagesData = [
         description: "Sketch sobre a ondulação formada pela função seno e os resultados obtidos ao somar duas funções distintas",
         picture: "",
         path: "https://lucasv26.github.io/P5JS-Pages/animations/FuncaoSeno/index.html"
+    },
+    {
+        name: "Atranção Gravitacional em Sistema",
+        description: "Sketch utilizando função de atração gravitacional em larga escala. Apresenta grande número de partículas e diversas disposições de atração",
+        picture: "",
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/Attraction/index.html"
     }
 ];
 
