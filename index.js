@@ -52,6 +52,12 @@ const pagesData = [
         description: "Sketch utilizando função de atração gravitacional em larga escala. Apresenta grande número de partículas e diversas disposições de atração",
         picture: "",
         path: "https://lucasv26.github.io/P5JS-Pages/animations/Attraction/index.html"
+    },
+    {
+        name: "Minigame de Japonês",
+        description: "Jogo de perguntas e respostas sobre Hiragana e Katakana",
+        picture: "",
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/Japanese/index.html"
     }
 ];
 
