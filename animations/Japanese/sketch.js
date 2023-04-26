@@ -23,8 +23,8 @@ class Botao{
    
     stroke(255);
     fill(255);
-    textSize(16);
-    text(this.text, this.posX + (this.sizeW / 2.7), this.posY + (this.sizeH / 2));
+    textSize(25);
+    text(this.text, this.posX + (this.sizeW / 2.4), this.posY + (this.sizeH / 1.8));
 
   }
 
@@ -201,7 +201,15 @@ let mapaPosicoes = {
 
 }
 
+let chaveHiraganaKatakana = 0;
+
 let countAcertos = 0, countErros = 0;
+
+let executaFuncao = {
+
+  84: () => {chaveHiraganaKatakana = chaveHiraganaKatakana ? 0 : 1; setup()}
+
+};
 
 function setup() {
 
@@ -225,9 +233,9 @@ function setup() {
   for(let i = 0 ; i < 4; i++) {
 
     if(i == posicaoRespostaCerta) {
-      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[chaves[chavePergunta]][0]} and ${dicionario[chaves[chavePergunta]][1]}`, true));
+      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[chaves[chavePergunta]][chaveHiraganaKatakana]}`, true));
     }else{
-      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[chaves[outrasChaves[countAux]]][0]} and ${dicionario[chaves[outrasChaves[countAux]]][1]}`, false))
+      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[chaves[outrasChaves[countAux]]][chaveHiraganaKatakana]}`, false))
       countAux++;
     }
 
@@ -247,10 +255,12 @@ function draw() {
   fill(255);
   textSize(16);
   
-  text("Selecione a Opção Correta", width/2.1, 50);
-  text(`Quais grafias representam o som '${chaves[chavePergunta]}'`, width/2.3, 70);
+  text("Selecione a Opção Correta", width/2.6, 50);
+  text(`Qual grafia representa o som '${chaves[chavePergunta]}'`, width/2.7, 70);
+  text(`Grafia atual: ${chaveHiraganaKatakana ? 'Katakana' : 'Hiragana'}`, width/1.7, 60);
 
-  text(`Totais: \n✔ ${countAcertos} \n❌ ${countErros}`, width/1.1, 20);
+  text(`Pontuação: \n✔ ${countAcertos} \n❌ ${countErros}`, width/1.1, 20);
+  text(`Mapa botões: \n'T': Alterar Grafia`, width/1.12, height - 100);
 
   for(let b of botoes)
     b.render();
@@ -284,3 +294,7 @@ function mousePressed() {
   }
 
 };
+
+function keyPressed() {
+  executaFuncao[keyCode]();
+}
