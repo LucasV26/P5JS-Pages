@@ -37,152 +37,78 @@ class Botao{
 }
 
 let dicionario = {
-  "A": ["あ", "ア"],
-  "E": ["え", "エ"],
-  "I": ["い", "イ"],
-  "O": ["お", "オ"],
-  "U": ["う", "ウ"],
-  "KA": ["か", "カ"],
-  "KE": ["け", "ケ"],
-  "KI": ["き", "キ"],
-  "KO": ["こ", "コ"],
-  "KU": ["く", "ク"],
-  "SA": ["さ", "サ"],
-  "SE": ["せ", "セ"],
-  "SI": ["し", "シ"],
-  "SO": ["そ", "ソ"],
-  "SU": ["す", "ス"],
-  "TA": ["た", "タ"],
-  "TE": ["て", "テ"],
-  "TI": ["ち", "チ"],
-  "TO": ["と", "ト"],
-  "TU": ["つ", "ツ"],
-  "NA": ["な", "ナ"],
-  "NE": ["ね", "ネ"],
-  "NI": ["に", "ニ"],
-  "NO": ["の", "ノ"],
-  "NU": ["ぬ", "ヌ"],
-  "ZA": ["ざ", "ザ"],
-  "ZE": ["ぜ", "ゼ"],
-  "ZI": ["じ", "ジ"],
-  "ZO": ["ぞ", "ゾ"],
-  "ZU": ["ず", "ズ"],
-  "DA": ["だ", "ダ"],
-  "DE": ["で", "デ"],
-  "DI": ["ぢ", "ヂ"],
-  "DO": ["ど", "ド"],
-  "DU": ["づ", "ヅ"],
-  "BA": ["ば", "バ"],
-  "BE": ["べ", "ベ"],
-  "BI": ["び", "ビ"],
-  "BO": ["ぼ", "ボ"],
-  "BU": ["ぶ", "ブ"],
-  "PA": ["ぱ", "パ"],
-  "PE": ["ぺ", "ペ"],
-  "PI": ["ぴ", "ピ"],
-  "PO": ["ぽ", "ポ"],
-  "PU": ["ぷ", "プ"],
-  "GA": ["が", "ガ"],
-  "GE": ["げ", "ゲ"],
-  "GI": ["ぎ", "ギ"],
-  "GO": ["ご", "ゴ"],
-  "GU": ["ぐ", "グ"],
-  "HA": ["は", "ハ"],
-  "HE": ["へ", "ヘ"],
-  "HI": ["ひ", "ヒ"],
-  "HO": ["ほ", "ホ"],
-  "HU": ["ふ", "フ"],
-  "MA": ["ま", "マ"],
-  "ME": ["め", "メ"],
-  "MI": ["み", "ミ"],
-  "MO": ["も", "モ"],
-  "MU": ["む", "ム"],
-  "YA": ["や", "ヤ"],
-  "YO": ["よ", "ヨ"],
-  "YU": ["ゆ", "ユ"],
-  "RA": ["ら", "ラ"],
-  "RE": ["れ", "レ"],
-  "RI": ["り", "リ"],
-  "RO": ["ろ", "ロ"],
-  "RU": ["る", "ル"],
-  "WA": ["わ", "ワ"],
-  "WO": ["を", "ヲ"],
-  "N": ["ん", "ン"]
+  0: ["あ", "ア", "A"],
+  1: ["え", "エ", "E"],
+  2: ["い", "イ", "I"],
+  3: ["お", "オ", "O"],
+  4: ["う", "ウ", "U"],
+  5: ["か", "カ", "KA"],
+  6: ["け", "ケ", "KE"],
+  7: ["き", "キ", "KI"],
+  8: ["こ", "コ", "KO"],
+  9: ["く", "ク", "KU"],
+  10: ["さ", "サ", "SA"],
+  11: ["せ", "セ", "SE"],
+  12: ["し", "シ", "SI"],
+  13: ["そ", "ソ", "SO"],
+  14: ["す", "ス", "SU"],
+  15: ["た", "タ", "TA"],
+  16: ["て", "テ", "TE"],
+  17: ["ち", "チ", "TI"],
+  18: ["と", "ト", "TO"],
+  19: ["つ", "ツ", "TU"],
+  20: ["な", "ナ", "NA"],
+  21: ["ね", "ネ", "NE"],
+  22: ["に", "ニ", "NI"],
+  23: ["の", "ノ", "NO"],
+  24: ["ぬ", "ヌ", "NU"],
+  25: ["ざ", "ザ", "ZA"],
+  26: ["ぜ", "ゼ", "ZE"],
+  27: ["じ", "ジ", "ZI"],
+  28: ["ぞ", "ゾ", "ZO"],
+  29: ["ず", "ズ", "ZU"],
+  30: ["だ", "ダ", "DA"],
+  31: ["で", "デ", "DE"],
+  32: ["ぢ", "ヂ", "DI"],
+  33: ["ど", "ド", "DO"],
+  34: ["づ", "ヅ", "DU"],
+  35: ["ば", "バ", "BA"],
+  36: ["べ", "ベ", "BE"],
+  37: ["び", "ビ", "BI"],
+  38: ["ぼ", "ボ", "BO"],
+  39: ["ぶ", "ブ", "BU"],
+  40: ["ぱ", "パ", "PA"],
+  41: ["ぺ", "ペ", "PE"],
+  42: ["ぴ", "ピ", "PI"],
+  43: ["ぽ", "ポ", "PO"],
+  44: ["ぷ", "プ", "PU"],
+  45: ["が", "ガ", "GA"],
+  46: ["げ", "ゲ", "GE"],
+  47: ["ぎ", "ギ", "GI"],
+  48: ["ご", "ゴ", "GO"],
+  49: ["ぐ", "グ", "GU"],
+  50: ["は", "ハ", "HA"],
+  51: ["へ", "ヘ", "HE"],
+  52: ["ひ", "ヒ", "HI"],
+  53: ["ほ", "ホ", "HO"],
+  54: ["ふ", "フ", "HU"],
+  55: ["ま", "マ", "MA"],
+  56: ["め", "メ", "ME"],
+  57: ["み", "ミ", "MI"],
+  58: ["も", "モ", "MO"],
+  59: ["む", "ム", "MU"],
+  60: ["や", "ヤ", "YA"],
+  61: ["よ", "ヨ", "YO"],
+  62: ["ゆ", "ユ", "YU"],
+  63: ["ら", "ラ", "RA"],
+  64: ["れ", "レ", "RE"],
+  65: ["り", "リ", "RI"],
+  66: ["ろ", "ロ", "RO"],
+  67: ["る", "ル", "RU"],
+  68: ["わ", "ワ", "WA"],
+  69: ["を", "ヲ", "WO"],
+  70: ["ん", "ン", "N"]
 }
-
-let chaves = [
-  "A",
-  "E",
-  "I",
-  "O",
-  "U",
-  "KA",
-  "KE",
-  "KI",
-  "KO",
-  "KU",
-  "SA",
-  "SE",
-  "SI",
-  "SO",
-  "SU",
-  "TA",
-  "TE",
-  "TI",
-  "TO",
-  "TU",
-  "NA",
-  "NE",
-  "NI",
-  "NO",
-  "NU",
-  "ZA",
-  "ZE",
-  "ZI",
-  "ZO",
-  "ZU",
-  "DA",
-  "DE",
-  "DI",
-  "DO",
-  "DU",
-  "BA",
-  "BE",
-  "BI",
-  "BO",
-  "BU",
-  "PA",
-  "PE",
-  "PI",
-  "PO",
-  "PU",
-  "GA",
-  "GE",
-  "GI",
-  "GO",
-  "GU",
-  "HA",
-  "HE",
-  "HI",
-  "HO",
-  "HU",
-  "MA",
-  "ME",
-  "MI",
-  "MO",
-  "MU",
-  "YA",
-  "YO",
-  "YU",
-  "RA",
-  "RE",
-  "RI",
-  "RO",
-  "RU",
-  "WA",
-  "WO",
-  "N"
-];
 
 let posicaoRespostaCerta;
 
@@ -203,11 +129,14 @@ let mapaPosicoes = {
 
 let chaveHiraganaKatakana = 0;
 
+let flagJogoInvertido = false;
+
 let countAcertos = 0, countErros = 0;
 
 let executaFuncao = {
 
-  84: () => {chaveHiraganaKatakana = chaveHiraganaKatakana ? 0 : 1; setup()}
+  84: () => {chaveHiraganaKatakana = chaveHiraganaKatakana ? 0 : 1; setup()},
+  82: () => {flagJogoInvertido = !flagJogoInvertido; setup()}
 
 };
 
@@ -220,12 +149,12 @@ function setup() {
 
   posicaoRespostaCerta = Math.floor(Math.random() * 4);
 
-  chavePergunta = Math.floor(Math.random() * 70);
+  chavePergunta = Math.floor(Math.random() * 71);
 
-  outrasChaves = [Math.floor(Math.random() * 70), Math.floor(Math.random() * 70), Math.floor(Math.random() * 70)];
+  outrasChaves = [Math.floor(Math.random() * 71), Math.floor(Math.random() * 71), Math.floor(Math.random() * 71)];
 
   while(outrasChaves.indexOf(chavePergunta) != -1)
-    outrasChaves[outrasChaves.indexOf(chavePergunta)] = Math.floor(Math.random() * 70);
+    outrasChaves[outrasChaves.indexOf(chavePergunta)] = Math.floor(Math.random() * 71);
 
 
   let countAux = 0;
@@ -233,9 +162,9 @@ function setup() {
   for(let i = 0 ; i < 4; i++) {
 
     if(i == posicaoRespostaCerta) {
-      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[chaves[chavePergunta]][chaveHiraganaKatakana]}`, true));
+      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[chavePergunta][flagJogoInvertido ? 2 : chaveHiraganaKatakana]}`, true));
     }else{
-      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[chaves[outrasChaves[countAux]]][chaveHiraganaKatakana]}`, false))
+      botoes.push(new Botao(width/mapaPosicoes[i][0], height/mapaPosicoes[i][1], 200, 100, `${dicionario[outrasChaves[countAux]][flagJogoInvertido ? 2 : chaveHiraganaKatakana]}`, false))
       countAux++;
     }
 
@@ -253,14 +182,20 @@ function draw() {
 
   stroke(0);
   fill(255);
-  textSize(16);
+  textSize(20);
   
-  text("Selecione a Opção Correta", width/2.6, 50);
-  text(`Qual grafia representa o som '${chaves[chavePergunta]}'`, width/2.7, 70);
-  text(`Grafia atual: ${chaveHiraganaKatakana ? 'Katakana' : 'Hiragana'}`, width/1.7, 60);
+  text("Selecione a Opção Correta", width/2.8, 50);
+
+  if(flagJogoInvertido)
+    text(`Qual o som da grafia ' ${dicionario[chavePergunta][chaveHiraganaKatakana]} '`, width/2.7, 70);
+  else  
+    text(`Qual grafia representa o som ' ${dicionario[chavePergunta][2]} '`, width/3, 70);
+  
+  text(`Grafia atual: ${chaveHiraganaKatakana ? 'Katakana' : 'Hiragana'}`, width/1.6, 60);
 
   text(`Pontuação: \n✔ ${countAcertos} \n❌ ${countErros}`, width/1.1, 20);
-  text(`Mapa botões: \n'T': Alterar Grafia`, width/1.12, height - 100);
+
+  text(`Mapa botões: \n'T': Alterar Grafia\n'R': Inverter Jogo`, width/1.15, height - 100);
 
   for(let b of botoes)
     b.render();
