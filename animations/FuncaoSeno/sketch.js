@@ -15,7 +15,7 @@ acoes = {
 }
 
 function setup() {
-  createCanvas(1200, 500);
+  createCanvas(window.innerWidth , window.innerHeight);
   background(0);
 
   for (let i=0; i<maxWaves; i++) {

@@ -9,7 +9,7 @@ let BotaoMenu;
 let mouseBotaoMenu;
 
 function setup() {
-  createCanvas(1200, 500);
+  createCanvas(window.innerWidth , window.innerHeight);
   background(0);
 
   BotaoMenu = new Triangulo();

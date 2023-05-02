@@ -8,7 +8,7 @@ let BotaoMenu;
 let mouseBotaoMenu;
 
 function setup() {
-  createCanvas(1200, 500);
+  createCanvas(window.innerWidth , window.innerHeight);
   extraCanvas = createGraphics(width, height); // createGraphics() cria um 'novo canvas'
   X = width / 2;
   Y = height / 2;

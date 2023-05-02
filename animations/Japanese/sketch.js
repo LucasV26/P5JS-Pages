@@ -142,7 +142,7 @@ let executaFuncao = {
 
 function setup() {
 
-  createCanvas(1200, 500);
+  createCanvas(window.innerWidth , window.innerHeight);
   background(0);
 
   BotaoMenu = new Triangulo();
@@ -178,7 +178,7 @@ function draw() {
   fill(0, 250, 247, 100);
   stroke(0, 100, 255, 80);
 
-  rect(width/4, 20, 700, 70);
+  rect(width/4, 20, 770, 70);
 
   stroke(0);
   fill(255);

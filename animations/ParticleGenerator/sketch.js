@@ -52,7 +52,7 @@ let geradores = [
 let BotaoMenu;
 let mouseBotaoMenu;
 function setup() {
-  createCanvas(1200, 500);
+  createCanvas(window.innerWidth , window.innerHeight);
   BotaoMenu = new Triangulo();
 };
 

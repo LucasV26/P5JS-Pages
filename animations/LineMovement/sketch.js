@@ -114,7 +114,7 @@ let todasBolinhas = [
 let BotaoMenu;
 let mouseBotaoMenu;
 function setup() {
-  createCanvas(1200, 500);
+  createCanvas(window.innerWidth , window.innerHeight);
   BotaoMenu = new Triangulo();
 };
 //A função setup() é executada apenas 1 vez durante todo o fluxo
