@@ -190,10 +190,10 @@ function draw() {
     text(`Qual o som da grafia ' ${dicionario[chavePergunta][chaveHiraganaKatakana]} '`, width/2.7, 70);
   else  
     text(`Qual grafia representa o som ' ${dicionario[chavePergunta][2]} '`, width/3, 70);
-  
-  text(`Grafia atual: ${chaveHiraganaKatakana ? 'Katakana' : 'Hiragana'}`, width/1.6, 60);
 
   text(`Pontuação: \n✔ ${countAcertos} \n❌ ${countErros}`, width/1.1, 20);
+
+  text(`Grafia atual: ${chaveHiraganaKatakana ? 'Katakana' : 'Hiragana'}`, 100, height - 100);
 
   text(`Mapa botões: \n'T': Alterar Grafia\n'R': Inverter Jogo`, width/1.15, height - 100);
 
