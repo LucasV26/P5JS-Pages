@@ -52,6 +52,9 @@ class Force{
   show() {
     noFill();
     stroke(255, 100);
+    // fill(random(0, 255), random(0, 255), random(0, 255), 100);
+    // stroke(random(0, 255), random(0, 255), random(0, 255), 100);
+    // ellipse(this.position.x, this.position.y, 5, 5);
     point(this.position.x, this.position.y);
   }
 
@@ -130,17 +133,22 @@ let executaFuncao = {
 
   80: () => {clearLines = !clearLines},
   83: () => {showSuns = !showSuns},
-  97: () => {quant = 1; createSuns()},
-  98: () => {quant = 2; createSuns()},
-  99: () => {quant = 3; createSuns()},
-  100: () => {quant = 4; createSuns()},
-  101: () => {quant = 5; createSuns()},
+  97: () => {quant = 1; setup()},
+  98: () => {quant = 2; setup()},
+  99: () => {quant = 3; setup()},
+  100: () => {quant = 4; setup()},
+  101: () => {quant = 5; setup()},
+  49: () => {quant = 1; setup()},
+  50: () => {quant = 2; setup()},
+  51: () => {quant = 3; setup()},
+  52: () => {quant = 4; setup()},
+  53: () => {quant = 5; setup()}
 
 };
 
 let forces = [];
 let suns = [];
-let mAtual, mAnterior, quant;
+let mAtual, mAnterior, quant = 1;
 let showSuns = false;
 let clearLines = false;
 
@@ -153,10 +161,9 @@ function setup() {
   background(0);
   BotaoMenu = new Triangulo();
 
-  quant = 1;
-
   createSuns();
 
+  forces = [];
   for(let i = 0; i < 1000; i++) {
     forces.push(new Force(1));
   }
