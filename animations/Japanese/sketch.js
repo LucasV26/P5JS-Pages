@@ -26,7 +26,6 @@ class Botao{
    
     stroke(255);
     fill(255);
-    textSize(25);
     text(this.text, this.posX + (this.sizeW / 2.4), this.posY + (this.sizeH / 1.8));
 
   }
@@ -65,85 +64,109 @@ let executaFuncao = {
 
 };
 
+let dicionarioCompleto = [
+  ["あ", "ア", "A", true],
+  ["え", "エ", "E", true],
+  ["い", "イ", "I", true],
+  ["お", "オ", "O", true],
+  ["う", "ウ", "U", true],
+  ["か", "カ", "KA", true],
+  ["け", "ケ", "KE", true],
+  ["き", "キ", "KI", true],
+  ["こ", "コ", "KO", true],
+  ["く", "ク", "KU", true],
+  ["さ", "サ", "SA", true],
+  ["せ", "セ", "SE", true],
+  ["し", "シ", "SHI", true],
+  ["そ", "ソ", "SO", true],
+  ["す", "ス", "SU", true],
+  ["た", "タ", "TA", true],
+  ["て", "テ", "TE", true],
+  ["ち", "チ", "CHI", true],
+  ["と", "ト", "TO", true],
+  ["つ", "ツ", "TSU", true],
+  ["な", "ナ", "NA", true],
+  ["ね", "ネ", "NE", true],
+  ["に", "ニ", "NI", true],
+  ["の", "ノ", "NO", true],
+  ["ぬ", "ヌ", "NU", true],
+  ["ざ", "ザ", "ZA", true],
+  ["ぜ", "ゼ", "ZE", true],
+  ["じ", "ジ", "JI", true],
+  ["ぞ", "ゾ", "ZO", true],
+  ["ず", "ズ", "ZU", true],
+  ["だ", "ダ", "DA", true],
+  ["で", "デ", "DE", true],
+  ["ぢ", "ヂ", "DI", true],
+  ["ど", "ド", "DO", true],
+  ["づ", "ヅ", "DU", true],
+  ["ば", "バ", "BA", true],
+  ["べ", "ベ", "BE", true],
+  ["び", "ビ", "BI", true],
+  ["ぼ", "ボ", "BO", true],
+  ["ぶ", "ブ", "BU", true],
+  ["ぱ", "パ", "PA", true],
+  ["ぺ", "ペ", "PE", true],
+  ["ぴ", "ピ", "PI", true],
+  ["ぽ", "ポ", "PO", true],
+  ["ぷ", "プ", "PU", true],
+  ["が", "ガ", "GA", true],
+  ["げ", "ゲ", "GE", true],
+  ["ぎ", "ギ", "GI", true],
+  ["ご", "ゴ", "GO", true],
+  ["ぐ", "グ", "GU", true],
+  ["は", "ハ", "HA", true],
+  ["へ", "ヘ", "HE", true],
+  ["ひ", "ヒ", "HI", true],
+  ["ほ", "ホ", "HO", true],
+  ["ふ", "フ", "FU", true],
+  ["ま", "マ", "MA", true],
+  ["め", "メ", "ME", true],
+  ["み", "ミ", "MI", true],
+  ["も", "モ", "MO", true],
+  ["む", "ム", "MU", true],
+  ["や", "ヤ", "YA", true],
+  ["よ", "ヨ", "YO", true],
+  ["ゆ", "ユ", "YU", true],
+  ["ら", "ラ", "RA", true],
+  ["れ", "レ", "RE", true],
+  ["り", "リ", "RI", true],
+  ["ろ", "ロ", "RO", true],
+  ["る", "ル", "RU", true],
+  ["わ", "ワ", "WA", true],
+  ["を", "ヲ", "WO", true],
+  ["ん", "ン", "N", true]
+];
+
+let botoesDicionario = [];
+
+let botaoDicionario, flagEditandoDicionario = false;
+
+function createBotoesDicionario() {
+
+  botoesDicionario = [];
+
+  for(let i = 0; i < dicionarioCompleto.length; i++) {
+
+    botoesDicionario.push(new Botao((i%10 * 110) + 190, (Math.floor(i/10) * 80) + 10, 100, 70, `${dicionarioCompleto[i][0]}, ${dicionarioCompleto[i][1]}, ${dicionarioCompleto[i][2]}`, dicionarioCompleto[i][3], 255, 255, 255));
+
+  }
+
+}
+
 function setup() {
 
   createCanvas(window.innerWidth , window.innerHeight);
   background(0);
 
+  let dicionario = dicionarioCompleto.filter((e) => {return e[3]});
 
-  let dicionario = [
-    ["あ", "ア", "A"],
-    ["え", "エ", "E"],
-    ["い", "イ", "I"],
-    ["お", "オ", "O"],
-    ["う", "ウ", "U"],
-    ["か", "カ", "KA"],
-    ["け", "ケ", "KE"],
-    ["き", "キ", "KI"],
-    ["こ", "コ", "KO"],
-    ["く", "ク", "KU"],
-    ["さ", "サ", "SA"],
-    ["せ", "セ", "SE"],
-    ["し", "シ", "SHI"],
-    ["そ", "ソ", "SO"],
-    ["す", "ス", "SU"],
-    ["た", "タ", "TA"],
-    ["て", "テ", "TE"],
-    ["ち", "チ", "CHI"],
-    ["と", "ト", "TO"],
-    ["つ", "ツ", "TSU"],
-    ["な", "ナ", "NA"],
-    ["ね", "ネ", "NE"],
-    ["に", "ニ", "NI"],
-    ["の", "ノ", "NO"],
-    ["ぬ", "ヌ", "NU"],
-    ["ざ", "ザ", "ZA"],
-    ["ぜ", "ゼ", "ZE"],
-    ["じ", "ジ", "JI"],
-    ["ぞ", "ゾ", "ZO"],
-    ["ず", "ズ", "ZU"],
-    ["だ", "ダ", "DA"],
-    ["で", "デ", "DE"],
-    ["ぢ", "ヂ", "DI"],
-    ["ど", "ド", "DO"],
-    ["づ", "ヅ", "DU"],
-    ["ば", "バ", "BA"],
-    ["べ", "ベ", "BE"],
-    ["び", "ビ", "BI"],
-    ["ぼ", "ボ", "BO"],
-    ["ぶ", "ブ", "BU"],
-    ["ぱ", "パ", "PA"],
-    ["ぺ", "ペ", "PE"],
-    ["ぴ", "ピ", "PI"],
-    ["ぽ", "ポ", "PO"],
-    ["ぷ", "プ", "PU"],
-    ["が", "ガ", "GA"],
-    ["げ", "ゲ", "GE"],
-    ["ぎ", "ギ", "GI"],
-    ["ご", "ゴ", "GO"],
-    ["ぐ", "グ", "GU"],
-    ["は", "ハ", "HA"],
-    ["へ", "ヘ", "HE"],
-    ["ひ", "ヒ", "HI"],
-    ["ほ", "ホ", "HO"],
-    ["ふ", "フ", "FU"],
-    ["ま", "マ", "MA"],
-    ["め", "メ", "ME"],
-    ["み", "ミ", "MI"],
-    ["も", "モ", "MO"],
-    ["む", "ム", "MU"],
-    ["や", "ヤ", "YA"],
-    ["よ", "ヨ", "YO"],
-    ["ゆ", "ユ", "YU"],
-    ["ら", "ラ", "RA"],
-    ["れ", "レ", "RE"],
-    ["り", "リ", "RI"],
-    ["ろ", "ロ", "RO"],
-    ["る", "ル", "RU"],
-    ["わ", "ワ", "WA"],
-    ["を", "ヲ", "WO"],
-    ["ん", "ン", "N"]
-  ]
+  if(dicionario.length <= 3) {
+
+    dicionario = dicionarioCompleto;
+    dicionarioCompleto.map((e) => {e[3] = true})
+
+  }
 
   if(flagAcerto == true) 
     countAcertos++;
@@ -154,11 +177,13 @@ function setup() {
 
   BotaoMenu = new Triangulo();
 
+  botaoDicionario = new Botao(50, 100, 100, 50, "Dicionário", null, 255, 255, 255);
+
   posicaoRespostaCerta = Math.floor(Math.random() * 4);
 
-  objetoPergunta = dicionario.splice(Math.floor(Math.random() * dicionario.length), 5)[0];
+  objetoPergunta = dicionario.splice(Math.floor(Math.random() * dicionario.length), 1)[0];
 
-  objetoOpcoes = [dicionario.splice(Math.floor(Math.random() * dicionario.length), 5)[0], dicionario.splice(Math.floor(Math.random() * dicionario.length), 5)[0], dicionario.splice(Math.floor(Math.random() * dicionario.length), 5)[0]];
+  objetoOpcoes = [dicionario.splice(Math.floor(Math.random() * dicionario.length), 1)[0], dicionario.splice(Math.floor(Math.random() * dicionario.length), 1)[0], dicionario.splice(Math.floor(Math.random() * dicionario.length), 1)[0]];
 
   let countAux = 0;
   botoes = [];
@@ -173,35 +198,69 @@ function setup() {
 
   }
 
+  createBotoesDicionario();
+
 };
 
 function draw() {
 
   background(0);
+
+  textSize(15);
+  textAlign(CENTER);
+  botaoDicionario.text = flagEditandoDicionario ? "Jogo" : "Dicionário";
+  botaoDicionario.render();
+
+
   fill(0, 250, 247, 100);
   stroke(0, 100, 255, 80);
+  textAlign(LEFT);
 
-  rect(width/4, 20, 770, 70);
+  if(flagEditandoDicionario) {
 
-  stroke(0);
-  fill(255);
-  textSize(20);
-  
-  text("Selecione a Opção Correta", width/2.8, 50);
+    textSize(13);
+    textAlign(CENTER);
+    for(let d of botoesDicionario){
 
-  if(flagJogoInvertido)
-    text(`Qual o som da grafia ' ${objetoPergunta[chaveHiraganaKatakana]} '`, width/2.7, 70);
-  else  
-    text(`Qual grafia representa o som ' ${objetoPergunta[2]} '`, width/3, 70);
+      if(d.flagRightAnswer){
+        d.R = 0;
+        d.G = 255;
+        d.B = 0;
+      }else {
+        d.R = 255;
+        d.G = 0;
+        d.B = 0;
+      }
 
-  text(`Pontuação: \n✔ ${countAcertos} \n❌ ${countErros}`, width/1.1, 20);
+      d.render();
+    }
 
-  text(`Grafia atual: ${chaveHiraganaKatakana ? 'Katakana' : 'Hiragana'}`, 100, height - 100);
+  }else {
 
-  text(`Mapa botões: \n'T': Alterar Grafia\n'R': Inverter Jogo`, width/1.15, height - 100);
+    rect(width/4, 20, 770, 70);
 
-  for(let b of botoes)
-    b.render();
+    stroke(0);
+    fill(255);
+    textSize(20);
+    
+    text("Selecione a Opção Correta", width/2.8, 50);
+
+    if(flagJogoInvertido)
+      text(`Qual o som da grafia ' ${objetoPergunta[chaveHiraganaKatakana]} '`, width/2.7, 70);
+    else  
+      text(`Qual grafia representa o som ' ${objetoPergunta[2]} '`, width/3, 70);
+
+    text(`Pontuação: \n✔ ${countAcertos} \n❌ ${countErros}`, width/1.1, 20);
+
+    text(`Grafia atual: ${chaveHiraganaKatakana ? 'Katakana' : 'Hiragana'}`, 100, height - 100);
+
+    text(`Mapa botões: \n'T': Alterar Grafia\n'R': Inverter Jogo`, width/1.15, height - 100);
+
+    textSize(25);
+    for(let b of botoes)
+      b.render();
+
+  }
 
   mouseBotaoMenu = new mouseTriangles(dist(mouseX, mouseY, BotaoMenu.p1x, BotaoMenu.p1y), dist(mouseX, mouseY, BotaoMenu.p2x, BotaoMenu.p2y), dist(mouseX, mouseY, BotaoMenu.p3x, BotaoMenu.p3y));
 
@@ -214,35 +273,78 @@ function draw() {
 
 };
 
+function mouseDragged() {
+
+  if(flagEditandoDicionario) {
+
+    for(let i = 0; i < botoesDicionario.length; i++) {
+
+      if(botoesDicionario[i].isInside(mouseX, mouseY)) {
+
+        botoesDicionario[i].flagRightAnswer = !botoesDicionario[i].flagRightAnswer;
+        dicionarioCompleto[i][3] = !dicionarioCompleto[i][3];
+
+      }
+
+    }
+
+  }
+
+}
+
 function mousePressed() {
  
   if (mouseBotaoMenu.Areas(BotaoMenu.a, BotaoMenu.b, BotaoMenu.c) == BotaoMenu.Area()) {
     location.replace('https://lucasv26.github.io/P5JS-Pages');
   }
 
-  for(b of botoes) {
+  if(botaoDicionario.isInside(mouseX, mouseY)) {
 
-    if(b.isInside(mouseX, mouseY)){
+    flagEditandoDicionario = !flagEditandoDicionario;
+    createBotoesDicionario();
 
-      if(b.flagRightAnswer) {
+  }
 
-        if(flagAcerto == -1)
-          flagAcerto = true;
+  if(flagEditandoDicionario) {
 
-        setup();
+    for(let i = 0; i < botoesDicionario.length; i++) {
 
-      }else {
+      if(botoesDicionario[i].isInside(mouseX, mouseY)) {
 
-        if(flagAcerto == -1)
-          flagAcerto = false;
-        
-        botoes[posicaoRespostaCerta].R = 0;
-        botoes[posicaoRespostaCerta].G = 255;
-        botoes[posicaoRespostaCerta].B = 0;
+        botoesDicionario[i].flagRightAnswer = !botoesDicionario[i].flagRightAnswer;
+        dicionarioCompleto[i][3] = !dicionarioCompleto[i][3];
 
-        b.R = 255;
-        b.G = 0;
-        b.B = 0;
+      }
+
+    }
+
+  }else{
+
+    for(b of botoes) {
+
+      if(b.isInside(mouseX, mouseY)){
+
+        if(b.flagRightAnswer) {
+
+          if(flagAcerto == -1)
+            flagAcerto = true;
+
+          setup();
+
+        }else {
+
+          if(flagAcerto == -1)
+            flagAcerto = false;
+          
+          botoes[posicaoRespostaCerta].R = 0;
+          botoes[posicaoRespostaCerta].G = 255;
+          botoes[posicaoRespostaCerta].B = 0;
+
+          b.R = 255;
+          b.G = 0;
+          b.B = 0;
+
+        }
 
       }
 
