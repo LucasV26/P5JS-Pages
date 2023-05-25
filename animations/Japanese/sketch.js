@@ -60,7 +60,8 @@ let countAcertos = 0, countErros = 0;
 let executaFuncao = {
 
   84: () => {chaveHiraganaKatakana = chaveHiraganaKatakana ? 0 : 1; setup()},
-  82: () => {flagJogoInvertido = !flagJogoInvertido; setup()}
+  82: () => {flagJogoInvertido = !flagJogoInvertido; setup()},
+  70: () => {if(flagEditandoDicionario) { dicionarioCompleto.map((e) => {e[3] = false}); createBotoesDicionario(); }}
 
 };
 
@@ -218,6 +219,10 @@ function draw() {
 
   if(flagEditandoDicionario) {
 
+    fill(255);
+    text("F: Limpar Seleção", 40, 200);
+    
+    fill(0, 250, 247, 100);
     textSize(13);
     textAlign(CENTER);
     for(let d of botoesDicionario){
@@ -355,5 +360,6 @@ function mousePressed() {
 };
 
 function keyPressed() {
+  // console.log(keyCode);
   executaFuncao[keyCode]();
 }
