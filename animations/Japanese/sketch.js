@@ -137,7 +137,7 @@ let dicionarioCompleto = [
   ["わ", "ワ", "WA", true],
   ["を", "ヲ", "WO", true],
   ["ん", "ン", "N", true]
-];
+]
 
 let botoesDicionario = [];
 
