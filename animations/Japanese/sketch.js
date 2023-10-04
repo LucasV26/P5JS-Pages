@@ -133,11 +133,11 @@ let dicionarioCompleto = [
   ["れ", "レ", "RE", true],
   ["り", "リ", "RI", true],
   ["ろ", "ロ", "RO", true],
-  ["る", "ル", "RU", true,
+  ["る", "ル", "RU", true],
   ["わ", "ワ", "WA", true],
   ["を", "ヲ", "WO", true],
   ["ん", "ン", "N", true]
-]
+];
 
 let botoesDicionario = [];
 
