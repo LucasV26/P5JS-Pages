@@ -58,6 +58,12 @@ const pagesData = [
         description: "Jogo de perguntas e respostas sobre Hiragana e Katakana",
         picture: "",
         path: "https://lucasv26.github.io/P5JS-Pages/animations/Japanese/index.html"
+    },
+    {
+        name: "Flappy Bird",
+        description: "Minigame semelhante ao conhecido jogo Flappy Bird, possível pular usando ↑, espaço ou o clicando",
+        picture: "",
+        path: "https://lucasv26.github.io/P5JS-Pages/animations/FlappyBird/index.html"
     }
 ];
 
