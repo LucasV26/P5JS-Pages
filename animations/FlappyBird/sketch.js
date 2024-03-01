@@ -1,3 +1,62 @@
+// class Connection{
+//   constructor(_startNeuron, _endNeuron, ) {
+
+//   }
+
+// }
+
+// class Neuron{
+
+
+
+// }
+
+// class Brain{
+//   constructor(inputNeuronsAmmount, hiddenLayersAmmount, hiddenNeuronsAmmount, outputNeuronsAmmount) {
+//     this.inputs = this.buildInputLayer(inputNeuronsAmmount)
+//     this.outputs = this.buildOutputLayer(outputNeuronsAmmount)
+//     this.hiddenLayer = this.buildHiddenLayer(hiddenLayersAmmount, hiddenNeuronsAmmount)
+//   }
+
+//   buildInputLayer(neuronsAmmount) {
+
+//     let _inputLayer = []
+
+//     for(let i=0; i<neuronsAmmount; i++)
+//       _inputLayer.push(new Neuron())
+
+//     return _inputLayer
+//   }
+
+//   buildHiddenLayer(layersAmmount, neuronsPerLayer) {
+//     let _hiddenLayer = []
+//     let _layer
+
+//     for(let i=0; i<layersAmmount; i++){
+//       _layer = []
+//       for(let j=0; j<neuronsPerLayer; j++)
+//         _layer.push(new Neuron())
+
+//       _hiddenLayer.push(_layer)
+//     }
+
+//     return _hiddenLayer
+  
+//   }
+
+//   buildOutputLayer(neuronsAmmount) {
+
+//     let _outputLayer = []
+
+//     for(let i=0; i<neuronsAmmount; i++)
+//       _outputLayer.push(new Neuron())
+
+//     return _outputLayer
+
+//   }
+
+// }
+
 class Force {
   constructor(x, y) {
     this.position = new p5.Vector(x, y);
