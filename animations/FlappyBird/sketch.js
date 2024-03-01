@@ -102,6 +102,11 @@ class Circle extends Force {
     this.g = 0
   }
 
+  flap() {
+    if(this.alive)
+      this.applyForce(new p5.Vector(0, -(0.008 * height)))
+  }
+
   draw() {
 
     fill(this.r, this.g, this.b)
@@ -120,12 +125,10 @@ class Circle extends Force {
 let executaFuncao = {
 
   38: () => {
-    if(flappy.alive)
-      flappy.applyForce(new p5.Vector(0, -3))
+    flappy.flap()
   },
   32: () => {
-    if(flappy.alive)
-      flappy.applyForce(new p5.Vector(0, -3))
+    flappy.flap()
   }
 
 };
@@ -148,7 +151,7 @@ function setup() {
   flappy = new Circle(width/2, height/2, height*0.03)
   floor = new Rectangle(0, height - 10, width, 80, 0, 165, 100, 65)
 
-  gravity = new p5.Vector(0, 0.07)
+  gravity = new p5.Vector(0, (0.00014 * height))
 
   pipesLoop = []
 
@@ -223,8 +226,7 @@ function mousePressed() {
     location.replace('https://lucasv26.github.io/P5JS-Pages');
   }
 
-  if(flappy.alive)
-    flappy.applyForce(new p5.Vector(0, -3))
+  flappy.flap()
 
 };
 
@@ -243,8 +245,8 @@ function throwPipes() {
 
     mult = (Math.random() * 0.7) + 0.1
 
-    pipes.push(new Rectangle(width + 300, 0, width*0.05, height*mult, 2, 0, 255, 0))
-    pipes.push(new Rectangle(width + 300, height*(mult+0.15), width*0.05, height*(1-mult+0.15), 2, 0, 255, 0))
+    pipes.push(new Rectangle(width + 300, 0, width*0.05, height*mult, (0.004 * width), 0, 255, 0))
+    pipes.push(new Rectangle(width + 300, height*(mult+0.15), width*0.05, height*(1-mult+0.15), (0.004 * width), 0, 255, 0))
 
     pipesLoop.push(pipes)
 
